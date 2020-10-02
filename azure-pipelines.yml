@@ -31,6 +31,6 @@ steps:
   inputs:
     testResultsFiles: '**/junit-*.xml'
     mergeTestResults: true
-    testRunTitle: 'Agilizei Nivel 2'
+    testRunTitle: 'Agilizei Nivel 02'
   continueOnError: true
 
