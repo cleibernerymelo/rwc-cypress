@@ -1,4 +1,5 @@
 const el = require('./elements').ELEMENTS
+import Routes from '../../routes'
 
 class Login {
 
@@ -15,5 +16,20 @@ class Login {
         //submeter o formulario de login
         cy.get(el.buttomSubmit).click();
     }
+    verificarSeOLoginFoiRealizadoComSucesso(){
+        cy.wait(`@${Routes.as.postUsersLogin}`).then((postUsersLoginResponse) => {
+            expect(postUsersLoginResponse.status).to.eq(200)
+        });
+
+        cy.wait(`@${Routes.as.getTags}`).then((getTagsResponse) => {
+            expect(getTagsResponse.status).to.eq(200)
+        });
+    
+        cy.wait(`@${Routes.as.getFeeds}`).then((getFeedsResponse) => {
+            expect(getFeedsResponse.status).to.eq(200)
+        });
+
+    }
 }
 export default new Login()
+

@@ -1,15 +1,26 @@
 /// <reference types="cypress" />
-
+import cadastro from '../support/pages/cadastro'
+import Routes from '../support/routes'
 const faker = require('faker')
 
 context('Cadastro', () => {
-    it('', () => {
-        cy.visit('/register');
 
-        cy.get('input[ng-model*=username]').type(faker.name.firstName() + faker.name.lastName());
-        cy.get('input[ng-model*=email]').type(faker.internet.email());
-        cy.get('input[ng-model*=password]').type('123456789');
-        cy.get('button.btn-primary').click();
+    beforeEach(() => {
+        //preparação
+        cadastro.acessarSignUp();
+    });
+    
+    it('Cadastro novo usuário', () => {
+        //Ação
+        cadastro.preencherFormulario();
+        cadastro.submeterFormulario();
+
+        //verificação utilizando rotas
+        cadastro.verificarSeOUserFoiCadastradoComSucesso();
     });
 });
+
+ //preparação
+  //Ação
+  //Verificaçao
 

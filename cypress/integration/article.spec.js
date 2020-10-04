@@ -15,7 +15,8 @@ context('Publicação', () => {
       //Ação
       articles.preencherFormulario()
       articles.submeterPublicacao()
-      //Verificaçao
+      
+      //Verificaçao utilizando rotas
     articles.verificarSeAPublicacaoFoiCriadaComSucesso()
     });
 
